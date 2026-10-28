@@ -1,0 +1,20 @@
+---
+description: Hold Python-filer i UTF-8 / ASCII slik at Streamlit ikke krasjer pa Windows-tegnsett
+alwaysApply: true
+---
+
+# Filkoding for Streamlit-appen
+
+Streamlit leser `.py` som UTF-8. Pa denne Windows-maskinen blir filer lett lagret som Windows-1252 eller UTF-16. Da krasjer appen med `utf-8 codec can't decode byte 0xf8` (ofte bokstaven o-slash).
+
+## Alltid
+
+- Skriv Python-kilde som **7-bit ASCII**. Norske bokstaver i strenger skal vaere unicode-yukt: `"stikkpr\\u00f8ve"`, `"lo\\u00f8nn"`, `"saer\\u00e6r"`, `"staar\\u00e5"`.
+- Ikke skriv ae/oe/aa, em-dash eller ellipsis som ekte tegn i `.py`-filer.
+- Brukeren ser likevel norsk tekst i appen, fordi Python avkoder `\\u00f8` ved kjoring.
+- Etter at du har endret `.py`-filer: minn brukeren om aa kjoere `ensure_utf8.py` foer Streamlit startes, hvis appen krasjer paa koding.
+
+## Ikke
+
+- Ikke anta at Write-verktøyet lagrer UTF-8.
+- Ikke be brukeren om Rerun i Streamlit-menyen som eneste fiks for denne feilen.

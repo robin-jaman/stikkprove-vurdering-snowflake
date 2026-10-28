@@ -1,0 +1,26 @@
+definition_version: 2
+
+# Beskriver appen for Snowflake CLI, slik at hele mappen kan sendes opp
+# med en kommando i stedet for a limes inn fil for fil i Snowsight.
+#
+# Appen havner i samme schema som stikkprovetabellen, og lager sine sju
+# hjelpetabeller der ved forste oppstart. Last opp med:
+#   .\.venv\Scripts\snow.exe streamlit deploy --replace --connection SPK-DATAINNSIKT
+
+entities:
+  stikkprovevurdering:
+    type: streamlit
+    identifier:
+      name: STIKKPROVEVURDERING
+      database: TEST
+      schema: DATAFORVALTNING_RAPPORTERING
+    stage: STIKKPROVE_APP_STAGE
+    runtime_name: SYSTEM$WAREHOUSE_RUNTIME
+    query_warehouse: COMPUTE_WH
+    main_file: app.py
+    pages_dir: null
+    artifacts:
+      - app.py
+      - environment.yml
+      - src/
+      - .streamlit/config.toml

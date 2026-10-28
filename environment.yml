@@ -1,0 +1,15 @@
+# Speiler pakkene appen faktisk kjorer med i Snowflake, warehouse runtime.
+# Pakkevelgeren i Snowsight skriver denne filen, saa endringer bor gjores der.
+name: app_environment
+channels:
+  - snowflake
+dependencies:
+  - openpyxl=3.1.5
+  - pandas=2.3.3
+  - python=3.11.*
+  - snowflake-snowpark-python=1.55.2
+  - streamlit=1.52.2
+# pandas maa staa i 2.x. pandas 3 finnes bare for Python 3.12 og nyere, og
+# conda feiler da med "Could not solve for environment specs".
+# Streamlit 1.52.2 er nyeste versjon warehouse runtime tilbyr. Koden kan derfor
+# ikke bruke funksjoner som kom i 1.53 eller senere.

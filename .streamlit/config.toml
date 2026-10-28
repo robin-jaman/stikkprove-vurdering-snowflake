@@ -1,0 +1,18 @@
+[theme]
+primaryColor = "#1B4F72"
+backgroundColor = "#F6F8FA"
+secondaryBackgroundColor = "#E8EEF3"
+textColor = "#1C2833"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+port = 8503
+runOnSave = true
+fileWatcherType = "auto"
+headless = false
+
+[client]
+showErrorDetails = true

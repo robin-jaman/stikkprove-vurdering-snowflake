@@ -1,0 +1,12 @@
+# Denne filen lastes opp til stagen i Snowflake.
+# Den lokale .streamlit/config.toml har i tillegg port og filovervaking,
+# som bare gjelder naar appen kjores paa egen maskin.
+[theme]
+primaryColor = "#1B4F72"
+backgroundColor = "#F6F8FA"
+secondaryBackgroundColor = "#E8EEF3"
+textColor = "#1C2833"
+font = "sans serif"
+
+[client]
+showErrorDetails = true
